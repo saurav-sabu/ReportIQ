@@ -1,8 +1,22 @@
 import os
 
+import base64
+
+def get_base64_image(image_path):
+    """
+    Converts a local image file into a Base64 string for direct embedding.
+    """
+    try:
+        with open(image_path, "rb") as image_file:
+            return base64.b64encode(image_file.read()).decode('utf-8')
+    except Exception as e:
+        print(f"Error encoding image {image_path}: {e}")
+        return None
+
 def generate_markdown_report(client_data, ddr_data, summary_table_rows, output_path):
     """
     Generates a high-fidelity Markdown report mirroring 'Main DDR.pdf'.
+    Now uses Base64 embedding for permanent image resolution.
     """
     
     # 1. FRONT MATTER & COVER
@@ -14,7 +28,7 @@ def generate_markdown_report(client_data, ddr_data, summary_table_rows, output_p
 
 **Report Date:** {client_data.get('date', 'July 24, 2023')}  
 **Prepared For:** {client_data.get('client_name', 'Flat No-8/63, Yamuna CHS')}  
-**Inspected By:** {client_data.get('inspected_by', 'Mr. Krushna')}
+**Inspected By:** {client_data.get('inspected_by', 'Mr. Rahane')}
 
 ---
 
@@ -123,11 +137,13 @@ This section contains high-resolution pairings of visual damage and their corres
 **Images:**
 """
         for img_path in section.get('images', []):
-            # Using absolute FILE URI for maximum preview compatibility
-            abs_path = os.path.abspath(img_path).replace("\\", "/")
-            if not abs_path.startswith("/"):
-                abs_path = "/" + abs_path
-            report += f"![Reference Image](file://{abs_path})\n\n"
+            # FIXED: BASE64 EMBEDDING for universal preview support
+            b64_str = get_base64_image(img_path)
+            if b64_str:
+                # Embedding as a direct data URI
+                report += f"![Reference Image](data:image/png;base64,{b64_str})\n\n"
+            else:
+                report += f"*(Image Missing: {os.path.basename(img_path)})*\n\n"
             
         report += "\n---\n"
         
