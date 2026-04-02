@@ -40,7 +40,11 @@ This report combines results from visual site inspection and thermal scanning. M
 #### Images:
 """
         for img_path in section.get('images', []):
-            sections_content += f"![Image]({os.path.abspath(img_path)})\n\n"
+            # Convert to relative path from the output/ folder to the temp/ folder
+            rel_path = os.path.relpath(img_path, start="output")
+            # Normalize to forward slashes for Markdown compatibility
+            rel_path = rel_path.replace("\\", "/")
+            sections_content += f"![Image]({rel_path})\n\n"
             
         sections_content += "\n---\n"
         
