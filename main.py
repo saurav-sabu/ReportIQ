@@ -42,8 +42,8 @@ def main():
     print("\n--- 2. Analysis Phase ---")
     ddr_data = []
     
-    # Reset model to gemini-1.5-flash to bypass potential 429 quota issues on 2.5-flash
-    # This ensures we get a successful run for the user.
+    # Switching to gemini-3.1-pro-preview as per user request
+    # This ensuring high-fidelity analysis.
     for i in range(min(7, len(summary_table))):
         point = summary_table[i]
         point_no = i + 1

@@ -29,7 +29,8 @@ def analyze_and_merge_logic(api_key, point_data, visual_pages, thermal_pages):
     """
     Core vision analysis logic for a single DDR point.
     """
-    llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", google_api_key=api_key)
+    model_name = os.getenv("MODEL_NAME", "gemini-3.1-pro-preview")
+    llm = ChatGoogleGenerativeAI(model=model_name, google_api_key=api_key)
     
     point_no = point_data.get("Point No", "") or point_data.get("PointNo", "")
     impacted = point_data.get("Impacted area (-ve side)", "") or point_data.get("Impacted area", "")
