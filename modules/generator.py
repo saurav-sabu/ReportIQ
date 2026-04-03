@@ -3,12 +3,17 @@ import shutil
 def generate_markdown_report(client_data, ddr_data, summary_table_rows, output_path):
     """
     Generates a high-fidelity Markdown report mirroring 'Main DDR.pdf'.
-    Now uses Base64 embedding for permanent image resolution.
+    Images are copied to output/images/ and linked via relative paths.
     """
     
+    branding_company = os.getenv("COMPANY_NAME", "UrbanRoof Private Limited")
+    branding_welcome = os.getenv("WELCOME_TEXT", "Thank you for choosing UrbanRoof to help you navigate the health of your property. We have put together this report based on inspection data and its analysis.")
+    branding_about = os.getenv("ABOUT_US_TEXT", "The idea, UrbanRoof, was born in 2016 to provide a transparent and straightforward process for the diagnosis & treatment of building constructions. We are obsessed with solving the smallest to the biggest issues of constructed properties.")
+    branding_disclaimer = os.getenv("LEGAL_DISCLAIMER", "UrbanRoof has performed a visual and non-destructive test inspection. We accept no responsibility for misuse or misinterpretation by third parties.")
+
     # 1. FRONT MATTER & COVER
     report = f"""# Detailed Diagnosis Report (DDR)
-**UrbanRoof Private Limited**
+**{branding_company}**
 
 ---
 
@@ -19,10 +24,10 @@ def generate_markdown_report(client_data, ddr_data, summary_table_rows, output_p
 ---
 
 ## Welcome
-Thank you for choosing UrbanRoof to help you navigate the health of your property. We have put together this report based on inspection data and its analysis.
+{branding_welcome}
 
 ## About Us
-The idea, UrbanRoof, was born in 2016 to provide a transparent and straightforward process for the diagnosis & treatment of building constructions. We are obsessed with solving the smallest to the biggest issues of constructed properties.
+{branding_about}
 
 ---
 
@@ -122,9 +127,11 @@ This section contains high-resolution pairings of visual damage and their corres
         
         for img_path in section.get('images', []):
             if os.path.exists(img_path):
-                dest_path = os.path.join(img_out_dir, os.path.basename(img_path))
+                source_prefix = os.path.basename(os.path.dirname(img_path))
+                unique_name = f"{source_prefix}_{os.path.basename(img_path)}"
+                dest_path = os.path.join(img_out_dir, unique_name)
                 shutil.copy(img_path, dest_path)
-                rel_path = f"images/{os.path.basename(dest_path)}".replace(os.path.sep, '/')
+                rel_path = f"images/{unique_name}".replace(os.path.sep, '/')
                 report += f"![Reference Image]({rel_path})\n\n"
             
         report += "\n---\n"
@@ -136,7 +143,7 @@ This section contains high-resolution pairings of visual damage and their corres
 The information provided is an opinion based on a visual examination of readily accessible features. It does not include identifying defects hidden behind walls, floors, or ceilings.
 
 ## Legal Disclaimer
-UrbanRoof has performed a visual and non-destructive test inspection. We accept no responsibility for misuse or misinterpretation by third parties.
+{branding_disclaimer}
 """
     
     with open(output_path, "w", encoding="utf-8") as f:

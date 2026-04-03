@@ -1,4 +1,5 @@
 import os
+import sys
 import json
 from dotenv import load_dotenv
 from langchain_google_genai import ChatGoogleGenerativeAI
@@ -15,25 +16,31 @@ def main():
     api_key = os.getenv("GOOGLE_API_KEY")
     if not api_key:
         print("Please set your GOOGLE_API_KEY in the environment or a .env file.")
-        return
+        sys.exit(1)
 
     # PDF Paths
-    sample_report_pdf = os.path.join(BASE_DIR, "Sample Report.pdf")
-    thermal_images_pdf = os.path.join(BASE_DIR, "Thermal Images.pdf")
+    sample_report_pdf = os.path.join(BASE_DIR, os.getenv("SAMPLE_PDF", "Sample Report.pdf"))
+    thermal_images_pdf = os.path.join(BASE_DIR, os.getenv("THERMAL_PDF", "Thermal Images.pdf"))
+    visual_start = int(os.getenv("VISUAL_START", "11"))
+    visual_end = int(os.getenv("VISUAL_END", "23"))
+    thermal_start = int(os.getenv("THERMAL_START", "1"))
+    thermal_end = int(os.getenv("THERMAL_END", "30"))
+    summary_page = int(os.getenv("SUMMARY_PAGE", "10"))
+    max_points = int(os.getenv("MAX_POINTS", "7"))
     
     for pdf in [sample_report_pdf, thermal_images_pdf]:
         if not os.path.exists(pdf):
             print(f"ERROR: Required file '{pdf}' not found.")
-            return
+            sys.exit(1)
 
     # 1. Extraction Phase
     print("--- 1. Extraction Phase ---")
-    visual_appendix = render_pages_to_images(sample_report_pdf, "visual_appendix", start_page=11, end_page=23)
-    thermal_scans = render_pages_to_images(thermal_images_pdf, "thermal_scans", start_page=1, end_page=30)
+    visual_appendix = render_pages_to_images(sample_report_pdf, "visual_appendix", start_page=visual_start, end_page=visual_end)
+    thermal_scans = render_pages_to_images(thermal_images_pdf, "thermal_scans", start_page=thermal_start, end_page=thermal_end)
     summary_table = extract_summary_table(sample_report_pdf)
     if not summary_table:
         print("ERROR: Could not extract summary table from the PDF.")
-        return
+        sys.exit(1)
     full_text = extract_text(sample_report_pdf)
     
     # Extract metadata logic from text
@@ -53,7 +60,22 @@ def main():
     os.makedirs(checkpoint_dir, exist_ok=True)
     checkpoint_path = os.path.join(checkpoint_dir, "checkpoint.json")
     
-    for i in range(min(7, len(summary_table))):
+    if os.path.exists(checkpoint_path):
+        with open(checkpoint_path, "r") as f:
+            ddr_data = json.load(f)
+        print(f"Resuming from checkpoint: {len(ddr_data)} points already completed.")
+    
+    num_points = min(max_points, len(summary_table))
+    if len(visual_appendix) < 2 * num_points:
+        print(f"WARNING: Only {len(visual_appendix)} visual pages for {num_points} points (expected {2*num_points})")
+    if len(thermal_scans) < num_points:
+        print(f"WARNING: Only {len(thermal_scans)} thermal pages for {num_points} points")
+
+    for i in range(num_points):
+        if i < len(ddr_data):
+            print(f"Skipping Point #{i+1} (already in checkpoint)")
+            continue
+
         point = summary_table[i]
         point_no = i + 1
         print(f"Analyzing Point #{point_no}...")
@@ -77,7 +99,7 @@ def main():
         ddr_data.append(section)
         
         with open(checkpoint_path, "w") as f:
-            json.dump(ddr_data, f, indent=2)
+            json.dump(ddr_data, f, indent=2, default=str)
     
     # 3. Generation Phase
     print("\n--- 3. Generation Phase ---")

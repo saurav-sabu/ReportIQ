@@ -2,6 +2,7 @@ import os
 import shutil
 import fitz # PyMuPDF
 import pdfplumber
+import re
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -10,6 +11,9 @@ def render_pages_to_images(pdf_path, output_subfolder, start_page=1, end_page=No
     Renders specified pages of a PDF as full images and saves to temp/<output_subfolder>/.
     Returns a list of image file paths.
     """
+    if start_page < 1:
+        raise ValueError(f"start_page must be >= 1, got {start_page}")
+        
     doc = fitz.open(pdf_path)
     output_dir = os.path.join(BASE_DIR, "temp", output_subfolder)
     
@@ -53,26 +57,38 @@ def extract_summary_table(pdf_path):
     """
     Extracts the Summary Table from Page 10 of Sample Report.pdf
     """
+    summary_page = int(os.getenv("SUMMARY_PAGE", "10"))
+    page_index = summary_page - 1
+    
     with pdfplumber.open(pdf_path) as pdf:
-        # Page 10 is index 9
-        if len(pdf.pages) < 10:
+        if len(pdf.pages) < summary_page:
             return None
         
-        page = pdf.pages[9]
+        page = pdf.pages[page_index]
         table = page.extract_table()
         
         if not table:
             return None
             
         # Clean the table data
-        headers = [h.strip() if h else f"col_{i}" for i, h in enumerate(table[0])]
+        def normalize(h):
+            return re.sub(r'\s+', ' ', h.strip().lower())
+
+        HEADER_ALIASES = {
+            "point no": "Point No",
+            "impacted area (-ve side)": "Impacted area (-ve side)",
+            "impacted area": "Impacted area (-ve side)",
+            "exposed area (+ve side)": "Exposed area (+ve side)",
+            "exposed area": "Exposed area (+ve side)",
+        }
+        headers = [HEADER_ALIASES.get(normalize(h), h.strip()) if h else f"col_{i}" for i, h in enumerate(table[0])]
+        
         rows = []
         for row in table[1:]:
-            cleaned = {headers[i]: (cell or "").replace('\n', ' ').strip() for i, cell in enumerate(row)}
+            padded = row + [None] * (len(headers) - len(row))
+            cleaned = {headers[i]: (cell or "").replace('\n', ' ').strip() for i, cell in enumerate(padded)}
             rows.append(cleaned)
         return rows
-
-import re
 
 def extract_client_metadata(text):
     """Extract client metadata from report text using pattern matching."""
@@ -81,13 +97,13 @@ def extract_client_metadata(text):
         return match.group(1).strip() if match else default
 
     return {
-        "client_name": find(r"Customer\s*Name[:\s]+(.+)"),
-        "address": find(r"Site\s*Address[:\s]+(.+)"),
-        "date": find(r"Date\s*of\s*Inspection[:\s]+(.+)"),
-        "inspected_by": find(r"Inspected\s*By[:\s]+(.+)"),
-        "property_type": find(r"Type\s*of\s*structure[:\s]+(.+)"),
+        "client_name": find(r"Customer\s*Name[:\s]+(.+?)(?:\n|$)"),
+        "address": find(r"Site\s*Address[:\s]+(.+?)(?:\n|$)"),
+        "date": find(r"Date\s*of\s*Inspection[:\s]+(.+?)(?:\n|$)"),
+        "inspected_by": find(r"Inspected\s*By[:\s]+(.+?)(?:\n|$)"),
+        "property_type": find(r"Type\s*of\s*structure[:\s]+(.+?)(?:\n|$)"),
         "floors": find(r"Floors?[:\s]+(\d+)"),
-        "age": find(r"Age\s*of\s*Building[:\s]+(.+)")
+        "age": find(r"Age\s*of\s*Building[:\s]+(.+?)(?:\n|$)")
     }
 
 if __name__ == "__main__":

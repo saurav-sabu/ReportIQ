@@ -3,5 +3,4 @@ pdfplumber
 langchain-google-genai
 langchain-core
 python-dotenv
-pydantic
 tenacity
