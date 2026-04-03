@@ -70,4 +70,7 @@ def analyze_and_merge_logic(api_key, point_data, visual_pages, thermal_pages):
         
     message = HumanMessage(content=content)
     response = llm.invoke([message])
+    
+    if isinstance(response.content, list):
+        return "".join([m.get("text", "") for m in response.content if isinstance(m, dict) and m.get("type") == "text"])
     return response.content

@@ -137,13 +137,8 @@ This section contains high-resolution pairings of visual damage and their corres
 **Images:**
 """
         for img_path in section.get('images', []):
-            # FIXED: BASE64 EMBEDDING for universal preview support
-            b64_str = get_base64_image(img_path)
-            if b64_str:
-                # Embedding as a direct data URI
-                report += f"![Reference Image](data:image/png;base64,{b64_str})\n\n"
-            else:
-                report += f"*(Image Missing: {os.path.basename(img_path)})*\n\n"
+            abs_path = os.path.abspath(img_path).replace(os.path.sep, '/')
+            report += f"![Reference Image](file:///{abs_path})\n\n"
             
         report += "\n---\n"
         
