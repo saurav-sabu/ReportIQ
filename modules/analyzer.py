@@ -1,8 +1,6 @@
 import os
 import base64
 import mimetypes
-import textwrap
-from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import HumanMessage
 from tenacity import retry, wait_exponential, stop_after_attempt
 
@@ -12,6 +10,9 @@ def call_llm(llm, message):
 def encode_image(image_path):
     if not os.path.exists(image_path):
         print(f"WARNING: Image not found: {image_path}")
+        return None
+    if os.path.getsize(image_path) > 20 * 1024 * 1024:
+        print(f"WARNING: Image exceeds 20MB limit and will be skipped: {image_path}")
         return None
     with open(image_path, "rb") as image_file:
         return base64.b64encode(image_file.read()).decode("utf-8")

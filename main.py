@@ -1,6 +1,8 @@
 import os
 import sys
 import json
+import argparse
+import shutil
 from dotenv import load_dotenv
 from langchain_google_genai import ChatGoogleGenerativeAI
 from modules.extractor import render_pages_to_images, extract_text, extract_summary_table, extract_client_metadata
@@ -13,6 +15,10 @@ load_dotenv()
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 def main():
+    parser = argparse.ArgumentParser(description="ReportIQ Extractor")
+    parser.add_argument("--fresh", action="store_true", help="Force a fresh run by ignoring checkpoint")
+    args = parser.parse_args()
+    
     api_key = os.getenv("GOOGLE_API_KEY")
     if not api_key:
         print("Please set your GOOGLE_API_KEY in the environment or a .env file.")
@@ -21,12 +27,17 @@ def main():
     # PDF Paths
     sample_report_pdf = os.path.join(BASE_DIR, os.getenv("SAMPLE_PDF", "Sample Report.pdf"))
     thermal_images_pdf = os.path.join(BASE_DIR, os.getenv("THERMAL_PDF", "Thermal Images.pdf"))
-    visual_start = int(os.getenv("VISUAL_START", "11"))
-    visual_end = int(os.getenv("VISUAL_END", "23"))
-    thermal_start = int(os.getenv("THERMAL_START", "1"))
-    thermal_end = int(os.getenv("THERMAL_END", "30"))
-    summary_page = int(os.getenv("SUMMARY_PAGE", "10"))
-    max_points = int(os.getenv("MAX_POINTS", "7"))
+    
+    try:
+        visual_start = int(os.getenv("VISUAL_START", "11"))
+        visual_end = int(os.getenv("VISUAL_END", "23"))
+        thermal_start = int(os.getenv("THERMAL_START", "1"))
+        thermal_end = int(os.getenv("THERMAL_END", "30"))
+        summary_page = int(os.getenv("SUMMARY_PAGE", "10"))
+        max_points = int(os.getenv("MAX_POINTS", "7"))
+    except ValueError as e:
+        print(f"ERROR: Invalid integer in environment variables: {e}")
+        sys.exit(1)
     
     for pdf in [sample_report_pdf, thermal_images_pdf]:
         if not os.path.exists(pdf):
@@ -37,7 +48,7 @@ def main():
     print("--- 1. Extraction Phase ---")
     visual_appendix = render_pages_to_images(sample_report_pdf, "visual_appendix", start_page=visual_start, end_page=visual_end)
     thermal_scans = render_pages_to_images(thermal_images_pdf, "thermal_scans", start_page=thermal_start, end_page=thermal_end)
-    summary_table = extract_summary_table(sample_report_pdf)
+    summary_table = extract_summary_table(sample_report_pdf, summary_page=summary_page)
     if not summary_table:
         print("ERROR: Could not extract summary table from the PDF.")
         sys.exit(1)
@@ -60,10 +71,18 @@ def main():
     os.makedirs(checkpoint_dir, exist_ok=True)
     checkpoint_path = os.path.join(checkpoint_dir, "checkpoint.json")
     
+    if args.fresh and os.path.exists(checkpoint_path):
+        os.remove(checkpoint_path)
+        print("Starting a fresh execution (--fresh requested).")
+    
     if os.path.exists(checkpoint_path):
-        with open(checkpoint_path, "r") as f:
-            ddr_data = json.load(f)
-        print(f"Resuming from checkpoint: {len(ddr_data)} points already completed.")
+        try:
+            with open(checkpoint_path, "r") as f:
+                ddr_data = json.load(f)
+            print(f"Resuming from checkpoint: {len(ddr_data)} points already completed.")
+        except json.JSONDecodeError:
+            print("WARNING: Checkpoint is corrupted. Starting from scratch.")
+            ddr_data = []
     
     num_points = min(max_points, len(summary_table))
     if len(visual_appendix) < 2 * num_points:
@@ -104,8 +123,16 @@ def main():
     # 3. Generation Phase
     print("\n--- 3. Generation Phase ---")
     output_md = os.path.join(BASE_DIR, "output", "Main_DDR_Report.md")
-    generate_markdown_report(client_data, ddr_data, summary_table, output_md)
+    generate_markdown_report(client_data, ddr_data, summary_table, output_md, max_points)
     print(f"High-fidelity report successfully generated at: {os.path.abspath(output_md)}")
+    
+    # 4. Cleanup Phase
+    if os.path.exists(checkpoint_path):
+        os.remove(checkpoint_path)
+    temp_dir = os.path.join(BASE_DIR, "temp")
+    if os.path.exists(temp_dir):
+        shutil.rmtree(temp_dir)
+        print("Cleaned up temporary generation files.")
 
 if __name__ == "__main__":
     main()

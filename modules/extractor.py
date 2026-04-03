@@ -14,50 +14,47 @@ def render_pages_to_images(pdf_path, output_subfolder, start_page=1, end_page=No
     if start_page < 1:
         raise ValueError(f"start_page must be >= 1, got {start_page}")
         
-    doc = fitz.open(pdf_path)
-    output_dir = os.path.join(BASE_DIR, "temp", output_subfolder)
-    
-    if os.path.exists(output_dir):
-        shutil.rmtree(output_dir)
-    os.makedirs(output_dir, exist_ok=True)
-    
-    image_paths = []
-    
-    if end_page is None:
-        end_page = len(doc)
-    else:
-        end_page = min(end_page, len(doc))
-    
-    # PDF page index is 0-based
-    for page_index in range(start_page - 1, end_page):
-        page = doc[page_index]
-        # High-resolution pixmap (2.0 zoom factor)
-        pix = page.get_pixmap(matrix=fitz.Matrix(2, 2))
+    with fitz.open(pdf_path) as doc:
+        output_dir = os.path.join(BASE_DIR, "temp", output_subfolder)
         
-        filename = f"page{page_index+1}.png"
-        filepath = os.path.join(output_dir, filename)
-        pix.save(filepath)
-        image_paths.append(filepath)
+        if os.path.exists(output_dir):
+            shutil.rmtree(output_dir)
+        os.makedirs(output_dir, exist_ok=True)
         
-    doc.close()
+        image_paths = []
+        
+        if end_page is None:
+            end_page = len(doc)
+        else:
+            end_page = min(end_page, len(doc))
+        
+        # PDF page index is 0-based
+        for page_index in range(start_page - 1, end_page):
+            page = doc[page_index]
+            # High-resolution pixmap (2.0 zoom factor)
+            pix = page.get_pixmap(matrix=fitz.Matrix(2, 2))
+            
+            filename = f"page{page_index+1}.png"
+            filepath = os.path.join(output_dir, filename)
+            pix.save(filepath)
+            image_paths.append(filepath)
+            
     return image_paths
 
 def extract_text(pdf_path):
     """
     Extracts all text from the PDF.
     """
-    doc = fitz.open(pdf_path)
     full_text = ""
-    for page in doc:
-        full_text += page.get_text()
-    doc.close()
+    with fitz.open(pdf_path) as doc:
+        for page in doc:
+            full_text += page.get_text()
     return full_text
 
-def extract_summary_table(pdf_path):
+def extract_summary_table(pdf_path, summary_page=10):
     """
     Extracts the Summary Table from Page 10 of Sample Report.pdf
     """
-    summary_page = int(os.getenv("SUMMARY_PAGE", "10"))
     page_index = summary_page - 1
     
     with pdfplumber.open(pdf_path) as pdf:

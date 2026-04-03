@@ -1,6 +1,6 @@
 import os
 import shutil
-def generate_markdown_report(client_data, ddr_data, summary_table_rows, output_path):
+def generate_markdown_report(client_data, ddr_data, summary_table_rows, output_path, max_points=7):
     """
     Generates a high-fidelity Markdown report mirroring 'Main DDR.pdf'.
     Images are copied to output/images/ and linked via relative paths.
@@ -100,7 +100,7 @@ Clean and chip off damaged plaster. Moisten surface and apply bonding coat. Prov
 | :--- | :--- | :--- |
 """
     # Append summary table rows
-    for row in summary_table_rows[:7]:
+    for row in summary_table_rows[:max_points]:
         p_no = row.get("Point No") or "N/A"
         neg = row.get("Impacted area (-ve side)") or "N/A"
         pos = row.get("Exposed area (+ve side)") or "N/A"
@@ -136,7 +136,7 @@ This section contains high-resolution pairings of visual damage and their corres
             
         report += "\n---\n"
         
-    report += """
+    report += f"""
 <div id="section-4-limitation-and-precaution-note"></div>
 
 ## SECTION 4: LIMITATION AND PRECAUTION NOTE
