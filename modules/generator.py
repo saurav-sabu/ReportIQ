@@ -136,9 +136,10 @@ This section contains high-resolution pairings of visual damage and their corres
 
 **Images:**
 """
+        output_dir = os.path.dirname(os.path.abspath(output_path))
         for img_path in section.get('images', []):
-            abs_path = os.path.abspath(img_path).replace(os.path.sep, '/')
-            report += f"![Reference Image](file:///{abs_path})\n\n"
+            rel_path = os.path.relpath(img_path, output_dir).replace(os.path.sep, '/')
+            report += f"![Reference Image]({rel_path})\n\n"
             
         report += "\n---\n"
         

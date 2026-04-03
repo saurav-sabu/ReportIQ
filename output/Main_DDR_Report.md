@@ -106,275 +106,281 @@ This section contains high-resolution pairings of visual damage and their corres
 
 #### Area: Area 1
 **Detailed Observations & Reasoning:**
-As an expert Property Diagnostic Inspector, I have analyzed the provided Visual Appendix and Thermal Report. My findings are as follows:
+As an expert Property Diagnostic Inspector, I have analyzed the provided visual and thermal documentation. Here is the diagnostic assessment:
 
-### **ISSUE POINT #: Water Intrusion / Dampness (Living/Bedroom Areas)**
-*   **IMPACTED AREA:** Interior wall surfaces adjacent to wet zones (specifically baseboards and lower wall sections showing paint blistering and efflorescence).
-*   **EXPOSED SOURCE AREA:** Wet area floor membranes (bathrooms/toilets) indicated in Photo 9, 10, and 11.
+### **ISSUE POINT #1**
+*   **IMPACTED AREA:** Interior wall base/skirting areas, specifically corners adjacent to wet zones (bathrooms/service areas).
+*   **EXPOSED SOURCE AREA:** Waterproofing failure in the adjacent bathroom/wet unit floor area.
 
 ---
 
-### **1. Identified Photo #**
-**Photo 5** in the Visual Appendix matches the Thermal Report (Page 1).
+### **1. Identification of Photos**
+*   **Visual Appendix:** **Photo 5** (This image captures the specific corner intersection showing moisture wicking and paint degradation).
+*   **Thermal Scan:** **Thermal image RB02380X.JPG** (Page 1 of the Thermal Report).
 
-### **2. Matching Thermal Scan**
-**Thermal image: RB02380X.JPG** (Page 1).
+### **2. Detailed Observation**
+*   **Visual Observation (Photo 5):** Shows clear signs of salt efflorescence (white powdery deposits) and paint blistering at the base of the wall corner. The dampness has tracked along the skirting, indicating active moisture migration from behind the surface.
+*   **Thermal Observation:** The thermal image shows a distinct "cold spot" (23.4 °C) emanating from the base of the wall corner, spreading upward. This blue/purple thermal signature confirms the presence of evaporative cooling caused by moisture saturation within the masonry/plaster substrate.
 
-### **3. Detailed Observation**
-*   **Visual Appendix (Photo 5):** Shows clear signs of moisture-related distress at the wall-floor junction. There is visible plaster degradation, paint peeling (bubbling), and staining, which are classic symptoms of rising damp or lateral water migration.
-*   **Thermal Scan (RB02380X):** The image displays a distinct "Cold Spot" (23.4°C) at the base of the wall corner. In infrared thermography, this temperature differential compared to the ambient wall surface (25.1°C to 28.8°C) confirms the presence of active moisture/dampness within the substrate. The plume shape of the cold spot suggests water is traveling behind the plaster from the adjacent wet zone.
+### **3. Probable Root Cause**
+The damage is caused by a **compromised waterproofing membrane** or defective tile grout/sealant in the adjacent bathroom (referenced in **Photos 9, 10, and 11**). Water is penetrating the bathroom floor substrate and migrating laterally through the wall assembly via capillary action, manifesting as dampness and material failure in the adjoining room's wall base.
 
-### **4. Probable Root Cause**
-The damage is caused by **Waterproofing Failure** in the adjacent wet area (as seen in Photos 9, 10, and 11). The lack of an effective moisture barrier or breached tile grout/membrane in the bathroom allows water to seep through the floor slab or wall junctions, migrating laterally into the dry-walled areas of the adjoining rooms via capillary action.
+### **4. Severity Assessment**
+*   **Severity: High**
+*   **Reasoning:** This is not merely cosmetic. The presence of sustained moisture at the base of a wall indicates an ongoing, active leak. This creates a high risk for structural degradation of the plaster, potential development of harmful mold/mildew (hazardous to health), and potential long-term damage to the wall's integrity if the moisture source is not isolated and repaired immediately.
 
-### **5. Severity Assessment**
-**Severity: High**
-*   **Reasoning:** The presence of persistent dampness at wall bases promotes structural deterioration of the plaster and is a high-risk factor for mold growth, which poses a health hazard to occupants. Furthermore, if left untreated, this constant moisture can lead to corrosion of embedded structural elements or electrical conduits within the walls.
-
-### **6. Recommended Actions**
-1.  **Moisture Source Remediation:** Perform a flood test or pressure test on the adjacent bathroom floor/walls (Photos 9-11) to confirm the exact leakage point. Re-grout or re-waterproof the bathroom floor membrane to prevent further water ingress.
-2.  **Substrate Drying & Restoration:** Once the source is sealed, remove the damaged, salt-affected plaster (efflorescence) from the impacted wall areas. Allow the masonry to dry completely using industrial dehumidifiers before applying moisture-resistant, breathable repair mortars.
-3.  **Preventative Sealing:** Apply a high-quality water-repellent sealant to the affected wall-floor junctions to prevent future lateral migration of moisture.
+### **5. Recommended Actions**
+1.  **Moisture Source Isolation:** Conduct a "flood test" or hydrostatic test in the adjacent bathroom (Photos 9-11) to confirm the exact breach point in the waterproofing layer.
+2.  **Professional Rectification:** Remove the affected wall plaster up to the height of the moisture mark, allow the wall to dry completely (dehumidification), and perform professional re-waterproofing of the bathroom floor and wall-to-floor junction using a flexible membrane system.
+3.  **Remediation:** Once the area is verified dry via secondary thermal scanning, apply a breathable anti-damp primer and refinish the wall to prevent recurring efflorescence.
 
 **Images:**
-![Reference Image](file:///C:/GenAI_Projects/ReportIQ/temp/visual_appendix/page11.png)
+![Reference Image](../temp/visual_appendix/page11.png)
 
-![Reference Image](file:///C:/GenAI_Projects/ReportIQ/temp/visual_appendix/page12.png)
+![Reference Image](../temp/visual_appendix/page12.png)
 
-![Reference Image](file:///C:/GenAI_Projects/ReportIQ/temp/thermal_scans/page1.png)
+![Reference Image](../temp/thermal_scans/page1.png)
 
 
 ---
 
 #### Area: Observed dampness at the skirting level
 **Detailed Observations & Reasoning:**
-As an expert Property Diagnostic Inspector, I have analyzed the provided visual and thermal documentation regarding the dampness issue in Flat No. 103.
+Based on the documentation provided, here is the diagnostic report for the identified issue:
 
-### 1. Identification of Photos
-*   **Impacted Area (Hall):** **Photo 23** and **Photo 25** clearly show localized wall dampness, paint peeling, and efflorescence specifically at the skirting level in the hall area.
-*   **Exposed Source Area (Bathroom):** **Photo 15** and **Photo 26** show the common bathroom floor tiling. While broad, these photos depict the area adjacent to the hall where grout deterioration is typically located.
+### 1. Photo Reference (Visual Appendix)
+*   **Impacted Area:** **Photo 23** and **Photo 25** show visible dampness, plaster degradation, and efflorescence at the skirting level of the hall wall.
+*   **Exposed Source Area:** **Photo 15**, **Photo 17**, and **Photo 26** display the common bathroom flooring, specifically showing worn/gapped tile joints, grout erosion, and inadequate sealing around the floor trap/wet area.
 
-### 2. Matching Thermal Scan
-*   **Thermal Page:** The thermal scan labeled **"Thermal image: RB02386X.JPG"** matches the visual evidence. The thermal image shows a distinct blue "cold spot" (22.4°C) at the lower wall section, which correlates with the moisture signature found in the corner of the wall depicted in the reference photo directly below the thermal map.
+### 2. Thermal Scan Reference
+*   **Thermal Image:** Page 2 of the Thermal Report (Image RB02386X.JPG).
+*   **Observation:** The thermal scan confirms the moisture presence, indicated by the blue "cold spot" (22.4°C) compared to the surrounding wall temperature (25.1°C - 27.4°C). The cold spot corresponds directly to the area of visible dampness seen in the photos, confirming active moisture migration behind the plaster.
 
 ### 3. Detailed Observation
-*   **Visual:** The hall walls (Photos 23 & 25) exhibit significant degradation of the plaster and paint finish at the floor-wall junction (skirting level), characteristic of capillary action or lateral moisture migration.
-*   **Thermal:** The thermal image captures a prominent cold zone at the base of the wall. In diagnostic thermal imaging, blue/cool areas indicate the presence of moisture, which conducts heat differently than dry building materials. This confirms that the dampness observed visually is active and deep-seated within the wall substrate.
+*   **Visual:** The hall wall skirting shows significant signs of dampness, including paint bubbling and plaster peeling, indicating moisture has been traveling through the wall structure.
+*   **Thermal:** The thermal overlay shows a distinct low-temperature anomaly, which is a classic diagnostic marker for trapped moisture/water ingress behind a wall surface.
+*   **Source:** The bathroom floor tiles (source area) show degraded grout lines, creating a pathway for surface water to seep beneath the tiles and migrate laterally into the adjacent hall partition wall.
 
 ### 4. Probable Root Cause
-The dampness in the hall is being driven by **lateral moisture migration** originating from the adjacent common bathroom. The gaps in the tile joints (grout failure) and potentially compromised waterproofing in the bathroom floor allow water to seep beneath the tiles. This water travels through the bedding mortar and into the wall masonry of the adjoining hall, manifesting as dampness at the skirting level.
+The root cause is **compromised waterproofing and poor grout integrity** in the common bathroom. Water used for bathing or cleaning seeps through the gaps between the tiles into the sub-floor bed. This trapped moisture migrates through the porous substrate (or wall-to-floor junction) and capillary action draws it up into the hall wall, resulting in the observed dampness at the skirting level.
 
 ### 5. Severity Assessment
-*   **Severity: High**
-*   **Reasoning:** Moisture at the skirting level indicates that the waterproofing barrier of the bathroom is failing. If left unaddressed, this will lead to further structural deterioration, potential rebar corrosion if the moisture penetrates deep enough, and the development of mold, which poses a health risk to occupants.
+**Severity: High**
+*   **Reasoning:** Prolonged moisture exposure at the base of the wall can lead to the corrosion of wall reinforcements (if applicable), severe structural plaster damage, and the growth of mold/mildew, which poses potential health risks to the occupants. The active "cold spot" confirms that the migration of water is ongoing.
 
 ### 6. Recommended Actions
-1.  **Bathroom Waterproofing Overhaul:** Perform a flood test in the common bathroom to confirm the point of ingress. All existing grout should be removed, and the tile joints must be cleaned and refilled with a high-grade, water-repellent epoxy grout.
-2.  **Surface Treatment:** Given the visible efflorescence and paint damage in the hall, the plaster at the impacted skirting area should be scraped back to the masonry. Allow the wall to dry completely, apply an anti-dampness/salt-resistant primer, and re-plaster using a water-resistant additive before repainting.
-3.  **Preventive Sealant:** Apply a clear, penetrating hydrophobic sealer to the bathroom tile joints and the perimeter wall-floor junction to provide an extra layer of protection against future water ingress.
+1.  **De-grouting and Re-grouting:** Remove all deteriorated/loose grout in the common bathroom floor. Deep-clean the gaps and fill them with high-quality, polymer-modified epoxy grout that provides a waterproof seal.
+2.  **Perimeter Sealing:** Apply a flexible, waterproof silicone sealant at the junction where the bathroom floor tiles meet the wall (skirting) to prevent further water ingress at the wall-floor interface.
+3.  **Remedial Plastering:** Once the source of the leak is rectified and the wall has been allowed to dry out completely (verified by moisture meter), remove the damaged plaster at the hall skirting, apply a water-repellent coating to the substrate, and perform fresh re-plastering and painting.
 
 **Images:**
-![Reference Image](file:///C:/GenAI_Projects/ReportIQ/temp/visual_appendix/page13.png)
+![Reference Image](../temp/visual_appendix/page13.png)
 
-![Reference Image](file:///C:/GenAI_Projects/ReportIQ/temp/visual_appendix/page14.png)
+![Reference Image](../temp/visual_appendix/page14.png)
 
-![Reference Image](file:///C:/GenAI_Projects/ReportIQ/temp/thermal_scans/page2.png)
+![Reference Image](../temp/thermal_scans/page2.png)
 
 
 ---
 
 #### Area: Area 3
 **Detailed Observations & Reasoning:**
-Based on the documentation provided, here is the property diagnostic inspection analysis:
+Based on the provided inspection documentation, here is the professional diagnostic assessment:
 
-### 1. Photo Identification
-*   **Visual Appendix:** **Photo 27** (and the first photo on the top left of the first page) shows the wall area impacted by moisture. 
-*   **Thermal Scan:** The thermal image provided on **Page 3** (labeled **RB02395X.JPG**) corresponds directly to the visual wall scan seen at the bottom of Page 3.
+### **1. Identified Photo #**
+*   **Visual Appendix:** **Photo 27 and Photo 34** (These show the bathroom floor/door threshold area adjacent to the wall experiencing dampness).
+*   **Reference Photo:** The bottom image on the **Thermal Report page** corresponds directly to the wall area shown in the top-left of the first Visual Appendix page.
 
-### 2. Detailed Observation
-*   **Visual Observation:** The wall surface shows distinct signs of dampness, efflorescence, and staining at the lower base level, extending horizontally along the wall near the floor transition. This is consistent with a moisture wick-up or lateral seepage.
-*   **Thermal Observation:** The thermal scan identifies a significant **Cold Spot (22°C)** in the lower section of the wall compared to the ambient surface temperature (approx. 24.2°C). The blue/cyan color gradient in the thermal image is a classic signature of thermal mass cooling caused by the presence of active moisture/water saturation within the wall substrate.
+### **2. Matching Thermal Scan Page**
+*   **Thermal Image:** RB02395X.JPG (Page 3 of the provided documents).
 
-### 3. Probable Root Cause
-The impacted area is adjacent to the wet zone (bathroom/utility area) shown in **Photos 28, 29, and 33**. The root cause is likely **compromised waterproofing (grouting/tile integrity)** in the bathroom area. Water is bypassing the floor membrane or leaking from the internal piping/drainage junction, then migrating laterally through the wall structure, manifesting as dampness on the adjacent dry wall.
+### **3. Detailed Observation**
+*   **Visual:** The images show significant signs of moisture ingress, including staining, plaster degradation, and potential mold growth along the lower portion of the wall. The bathroom floor area (Photos 27/34) appears to have compromised grout or waterproofing, allowing water to migrate laterally.
+*   **Thermal:** The thermal image reveals a distinct, elongated "cold spot" at approximately **22 °C**, contrasting with the ambient wall temperature of **24.2 °C**. This blue-spectrum signature is a classic indicator of active moisture saturation within the masonry/drywall, confirming that the wall is wicking water from the bathroom floor area.
 
-### 4. Severity Assessment
+### **4. Probable Root Cause**
+*   **Source:** Failure of the waterproof membrane or degraded tile grouting at the bathroom threshold/floor junction. 
+*   **Pathway:** Water from daily bathroom usage is bypassing the surface seal, infiltrating the sub-floor or wall-to-floor joint, and traveling laterally into the adjacent wall structure. This is causing the observed moisture wick-up and surface damage on the opposite side of the partition.
+
+### **5. Severity Assessment**
 *   **Severity: High**
-*   **Reasoning:** The cold spot in the thermal image indicates significant moisture saturation. If left unaddressed, this will lead to the degradation of plaster, potential mold growth, damage to electrical conduits if present in the wall, and structural weakening of the wall base.
+*   **Reasoning:** The presence of sustained cold spots indicates active, ongoing moisture migration. If left unaddressed, this will lead to progressive degradation of the wall substrate, potential structural weakening of the plaster, and unhealthy mold growth that can affect indoor air quality.
 
-### 5. Recommended Actions
-1.  **Pressure/Leak Test:** Conduct a dye test or a pressure test on the internal bathroom supply lines and verify the integrity of the floor drain to confirm the exact source of water ingress.
-2.  **Waterproofing Remediation:** Remove compromised floor/wall tiles in the bathroom near the damp zone, repair the underlying substrate, and re-apply professional-grade waterproofing membranes (e.g., polymer-modified cementitious coating) before retiling.
-3.  **Substrate Drying & Re-plastering:** Once the source is sealed, the affected wall area must be stripped of damp plaster/paint, allowed to dry thoroughly, and treated with an anti-fungal solution before applying fresh, moisture-resistant render and finishing coats.
+### **6. Recommended Actions**
+1.  **Waterproofing Remediation:** Carefully remove the existing tiles/grouting at the bathroom threshold and the bottom 6 inches of the affected wall area. Apply a high-quality, flexible liquid waterproof membrane and re-grout using epoxy-based (water-resistant) grout.
+2.  **Surface Treatment:** Once the source of the leak is repaired, allow the wall to dry completely (using a dehumidifier if necessary). Scrape away any loose/damaged plaster, treat the area with an anti-fungal solution, and re-plaster/paint with moisture-resistant products.
+3.  **Pressure/Leak Test:** Conduct a flood test of the bathroom floor (plugging the drain and testing the threshold seal) to ensure the repair has successfully contained the water before finalizing cosmetic finishes.
 
 **Images:**
-![Reference Image](file:///C:/GenAI_Projects/ReportIQ/temp/visual_appendix/page15.png)
+![Reference Image](../temp/visual_appendix/page15.png)
 
-![Reference Image](file:///C:/GenAI_Projects/ReportIQ/temp/visual_appendix/page16.png)
+![Reference Image](../temp/visual_appendix/page16.png)
 
-![Reference Image](file:///C:/GenAI_Projects/ReportIQ/temp/thermal_scans/page3.png)
+![Reference Image](../temp/thermal_scans/page3.png)
 
 
 ---
 
 #### Area: Area 4
 **Detailed Observations & Reasoning:**
-Based on the provided inspection documentation, here is the diagnostic report:
+As an expert Property Diagnostic Inspector, I have analyzed the provided Visual Appendix and Thermal Report. Below is the diagnostic assessment for the identified issue:
 
-### **ISSUE POINT #**
-*   **IMPACTED AREA:** Interior wall surface adjacent to the exterior pipe duct/shaft (Bedroom/Living wall).
-*   **EXPOSED SOURCE AREA:** External plumbing shaft containing corroded, leaking waste/water lines.
+### **ISSUE POINT #: Water Infiltration / Seepage**
+- **IMPACTED AREA:** Internal wall surface adjacent to the floor level (visible in Photo 38 and the corresponding visual reference in the Thermal Report).
+- **EXPOSED SOURCE AREA:** External pipe duct/shaft area (Photo 42).
 
 ---
 
-### **1. Identified Photo #**
-*   **Visual Appendix:** **Photo 41** (Impacted wall interior) and **Photo 42** (Exposed exterior source).
-*   **Thermal Report:** **Page 4**, Thermal image `RB02402X.JPG`.
+### **1. Identification**
+*   **Photo #:** **Photo 38** (Visual Appendix) shows the wall dampness/efflorescence; **Photo 42** (Visual Appendix) shows the external pipe failure causing the infiltration.
+*   **Thermal Scan Page:** Page 4, Image `RB02402X.JPG`.
 
 ### **2. Detailed Observation**
-*   **Visual:** Photo 41 displays significant rising dampness, paint blistering, and wall degradation at the base of an interior wall. Photo 42 reveals the exterior side of this wall, which is an open pipe duct containing severely corroded metal plumbing lines and heavy moisture staining/growth on the masonry.
-*   **Thermal:** The thermal scan confirms a clear "cold spot" (20.7°C) compared to the surrounding wall (25.7°C). This distinct blue/green thermal signature indicates active moisture accumulation within the wall substrate, correlating exactly with the location of the leaking pipes seen in Photo 42.
+*   **Visual:** Photo 38 displays clear signs of moisture-related distress: wall paint peeling, efflorescence, and substrate degradation along the lower section of the wall. Photo 42 provides the technical context: it shows a common shaft area with exposed, corroded, and leaking plumbing/drainage pipes. The presence of surface moisture on the pipe infrastructure confirms active leakage.
+*   **Thermal:** The thermal image `RB02402X.JPG` confirms a distinct "cold spot" (20.7°C - 22.2°C) against a warmer background. In building diagnostics, this temperature differential represents evaporative cooling caused by moisture saturation within the masonry behind the paint layer.
 
 ### **3. Probable Root Cause**
-The primary cause is **external plumbing failure** located within the service duct. The compromised pipes (as seen in Photo 42) are leaking or sweating, allowing water to saturate the common wall. Because the wall is porous, the moisture has migrated to the interior side (Photo 41), resulting in chronic dampness, efflorescence, and degradation of the interior wall finish.
+The primary root cause is **plumbing/drainage failure in the external pipe duct (Photo 42)**. Water is escaping from the compromised joints or corroded pipe sections within the shaft, tracking through the building envelope, and saturating the internal partition wall. The proximity of the wall in Photo 38 to the external utility shaft suggests a direct pathway for this lateral water migration.
 
-### **4. Severity Assessment**
-*   **Severity: HIGH**
-*   **Reasoning:** The presence of active leaks on corroded metal pipes poses a risk of structural deterioration of the masonry and creates an environment for mold growth, which is a health hazard. Furthermore, the persistent moisture will continue to destroy interior finishes and potentially damage electrical outlets if the leakage spreads.
+### **4. Severity Assessment: HIGH**
+*   **Reasoning:** 
+    *   **Structural/Sanitary Risk:** Sustained moisture in masonry can lead to corrosion of embedded steel reinforcement and the development of black mold, which poses significant health risks.
+    *   **Progression:** The degree of paint damage and efflorescence indicates that this is a long-standing, active leak, not a transient condensation issue.
 
 ### **5. Recommended Actions**
-1.  **Plumbing Remediation:** Engage a licensed plumber to replace the corroded/leaking pipe sections within the external shaft (Photo 42) and ensure all joints are watertight.
-2.  **Waterproofing:** Once the leak is repaired and the wall has been allowed to dry completely, apply an external-grade waterproofing membrane to the interior face of the duct wall to prevent future moisture migration.
-3.  **Interior Restoration:** Remove all damaged plaster/paint on the interior side (Photo 41) down to the masonry, treat the surface for any latent moisture/salt deposits, and re-plaster/paint using moisture-resistant materials.
+1.  **Professional Plumbing Intervention:** Immediately engage a licensed plumber to inspect and replace the corroded/leaking pipe sections within the external shaft (Photo 42). A pressure test should be conducted post-repair to ensure system integrity.
+2.  **Moisture Remediation:** Once the source is repaired, the affected wall (Photo 38) must be allowed to dry completely. Following full dehydration, all loose/damaged plaster must be scraped off, treated with a fungicidal solution, and re-plastered using moisture-resistant additives before repainting.
+3.  **Waterproofing Upgrade:** Seal the wall-to-floor junctions and the pipe entry points in the shaft area with high-grade elastomeric waterproofing compound to prevent future water tracking into the interior.
 
 **Images:**
-![Reference Image](file:///C:/GenAI_Projects/ReportIQ/temp/visual_appendix/page17.png)
+![Reference Image](../temp/visual_appendix/page17.png)
 
-![Reference Image](file:///C:/GenAI_Projects/ReportIQ/temp/visual_appendix/page18.png)
+![Reference Image](../temp/visual_appendix/page18.png)
 
-![Reference Image](file:///C:/GenAI_Projects/ReportIQ/temp/thermal_scans/page4.png)
+![Reference Image](../temp/thermal_scans/page4.png)
 
 
 ---
 
 #### Area: Area 5
 **Detailed Observations & Reasoning:**
-As an expert Property Diagnostic Inspector, I have analyzed the provided visual and thermal documentation. Below is the diagnostic report regarding the observed moisture and structural distress.
+As an expert Property Diagnostic Inspector, I have analyzed the provided Visual Appendix and Thermal Report. Based on the documentation, here is the diagnostic report:
 
-### **Diagnostic Report**
-
-*   **ISSUE POINT #:** Structural Moisture Intrusion & Plaster Degradation
-*   **IMPACTED AREA:** Interior wall-floor junction (as seen in Thermal Image RB02403X.JPG) and exterior building facade/underside of soffits (Photos 45–50).
-*   **EXPOSED SOURCE AREA:** External facade surface cracks and potential drainage/plumbing leak points at the exterior soffit/conduit area (Photos 43–44).
+### **ISSUE POINT #: Water Infiltration & Structural Degradation**
+*   **IMPACTED AREA:** Interior lower wall/skirting levels (Thermal Report) and exterior concrete ceilings/soffits (Visual Appendix).
+*   **EXPOSED SOURCE AREA:** External facade cracking and drainage/plumbing conduit areas.
 
 ---
 
-### **1. Identified Photo(s)**
-*   **Visual Appendix:** Photos **45, 46, 47, 49, and 50** show significant exterior structural cracking (map cracking/crazing) and spalling concrete on the soffits and facade.
-*   **Thermal Scan:** **RB02403X.JPG** confirms moisture accumulation at the interior wall base, indicated by the distinct blue "cold spot" (20.5°C) against the warmer wall surface.
+### **1. Identify the specific 'Photo #'**
+*   **Primary Impacted Area (Visuals):** **Photo 49 & 50**. These show significant spalling, damp patches, and concrete degradation on the exterior ceiling/soffit.
+*   **Structural Context:** **Photos 45, 46, & 47** reveal widespread "map cracking" (alligator cracking) on the exterior facade, which serves as the entry point for moisture.
 
-### **2. Detailed Observation**
-*   **Thermal Scan:** The thermal image shows a concentrated cold spot at the intersection of the floor and the wall. This indicates an area of high moisture content where the evaporation or thermal mass of water is drawing heat away from the surrounding structure.
-*   **Visual Appendix:** 
-    *   Photos 43-44 illustrate the likely source: corroded, exposed plumbing/conduit lines running along a building exterior/service gap, which appear unsealed and prone to leaking.
-    *   Photos 45-50 show extensive "map cracking" or crazing on the exterior building skin. These micro-fissures act as pathways for driving rain to penetrate the concrete, leading to the spalling (peeling) and staining observed in Photos 49 and 50.
+### **2. Matching Thermal Scan Page**
+*   **Thermal Scan Page:** **Page 5 (Image: RB02403X.JPG)**.
+    *   The thermal image shows a distinct "Coldspot" (20.5°C) at the floor-wall junction, confirming active moisture accumulation behind the wall finish.
 
-### **3. Probable Root Cause**
-The primary issue is **Water Ingress via Facade Failure and Plumbing Leaks**.
-1.  **Facade Failure:** The extensive map cracking on the exterior envelope allows for capillary action, drawing moisture deep into the structural concrete.
-2.  **Point Source:** The rusted/exposed pipes in Photos 43-44 are potential leak points. Once water enters the structural voids, it gravitates downward, causing the spalling observed on the soffits (49/50) and eventually migrating to the interior wall-floor junction, manifesting as the cold spot in the thermal report.
+### **3. Detailed Observation**
+*   **Visual Appendix:** Photos 49 and 50 demonstrate clear evidence of long-term water ingress, showing spalling concrete and exposed aggregate on the underside of a structural slab. Photos 45–47 show extensive micro-cracking across the building envelope.
+*   **Thermal Report:** The thermal scan identifies an active moisture profile at the base of an interior wall. The temperature differential (approx. 3°C lower than the surrounding wall) is a textbook signature of evaporative cooling caused by trapped moisture within the wall substrate.
 
-### **4. Severity Assessment**
-*   **Severity:** **High**
-*   **Reasoning:** The presence of spalling concrete (exposed aggregate/rebar oxidation in Photo 49) indicates that moisture has already bypassed the protective cover of the concrete and is likely causing corrosion of the internal steel reinforcement. Left unaddressed, this leads to structural degradation, compromised building integrity, and potential interior mold growth.
+### **4. Probable Root Cause**
+The primary root cause is **systemic waterproofing failure of the building envelope.** 
+*   The extensive "map cracking" visible on the exterior facade (Photos 45-47) allows rainwater to permeate the concrete.
+*   Once inside the slab, this water travels until it reaches a low point or a ceiling soffit (Photos 49-50), causing spalling, or migrates to the internal floor-wall junctions (Thermal Report), leading to the dampness observed in the thermal scan. The plumbing/conduit areas shown in Photos 43-44 may be exacerbating this by acting as water collection points.
 
-### **5. Recommended Actions**
-1.  **Hydrostatic/Pressure Test:** Conduct a dye test or pressure test on the exposed plumbing conduits shown in Photos 43 and 44 to confirm if the leaks are originating from the building's internal plumbing system.
-2.  **Facade Waterproofing:** Perform a thorough cleaning of the exterior surface followed by the application of an elastomeric, crack-bridging anti-carbonation coating. This will seal the "map cracking" and prevent further rain ingress.
-3.  **Spall Repair:** Engage a structural contractor to treat the spalling areas (Photos 49-50). This requires removing loose concrete, treating exposed rusted rebar with an anti-corrosive primer, and patching with a polymer-modified high-strength structural repair mortar.
+### **5. Severity Assessment: High**
+*   **Reasoning:** The combination of exterior spalling (which risks concrete falling/safety hazards) and internal thermal evidence of trapped moisture indicates a building-wide issue. This is not surface-level; it is structural. If left unaddressed, it will lead to ongoing corrosion of reinforcement steel (rebar), further compromising structural integrity.
+
+### **6. Recommended Actions**
+1.  **Professional Facade Restoration:** Apply a high-grade elastomeric, anti-carbonation coating to the building exterior to seal the widespread micro-cracking and prevent further water ingress.
+2.  **Structural Repair of Spalled Areas:** Engage a structural repair team to clean the exposed rebar in the soffits (Photos 49-50), treat with anti-corrosive primer, and patch with polymer-modified repair mortar.
+3.  **Moisture Remediation:** Address the interior dampness by removing compromised plaster/paint at the base of the walls (identified in the thermal report), allowing the masonry to fully dry out before applying a waterproof barrier and re-finishing.
 
 **Images:**
-![Reference Image](file:///C:/GenAI_Projects/ReportIQ/temp/visual_appendix/page19.png)
+![Reference Image](../temp/visual_appendix/page19.png)
 
-![Reference Image](file:///C:/GenAI_Projects/ReportIQ/temp/visual_appendix/page20.png)
+![Reference Image](../temp/visual_appendix/page20.png)
 
-![Reference Image](file:///C:/GenAI_Projects/ReportIQ/temp/thermal_scans/page5.png)
+![Reference Image](../temp/thermal_scans/page5.png)
 
 
 ---
 
 #### Area: Observed dampness at the skirting level
 **Detailed Observations & Reasoning:**
-As an expert Property Diagnostic Inspector, I have analyzed the provided visual and thermal evidence regarding the dampness issue in Flat No. 103.
+As an expert Property Diagnostic Inspector, I have analyzed the provided visual and thermal evidence regarding the dampness issue in Flat No. 103. Here is the diagnostic breakdown:
 
-### 1. Identification of Visual Evidence
-*   **Impacted Area (Common Bedroom):** The visual reference for the impacted skirting area is found in the **Thermal Report page (bottom image)**, which clearly shows dampness and potential efflorescence at the base of the bedroom wall.
-*   **Exposed Source Area (Common Bathroom):** **Photo 56** and **Photo 57** show the floor area of the common bathroom. These images display significant grout deterioration, gaps between tile joints, and signs of water stagnation, which are the primary entry points for moisture.
+### 1. Specific Photo Reference
+*   **Impacted Area:** **Photo 55 and Photo 57** (Visual Appendix) show the bathroom floor and corner conditions consistent with where moisture ingress would originate, leading to the skirting dampness on the adjacent bedroom wall.
+*   **Thermal Evidence:** **Thermal Image RB02404X.JPG** (Page 6) confirms the impacted area.
 
 ### 2. Matching Thermal Scan
-*   **Thermal Image:** The scan titled **"RB02404X.JPG"** on the Thermal Report page.
+*   The matching thermal scan is **Thermal image: RB02404X.JPG** on page 6 of the report. The bottom half of the image shows the visual reference of the wall with paint blistering and dampness at the skirting level.
 
 ### 3. Detailed Observation
-*   **Thermal Scan:** The scan indicates a distinct "cold spot" (marked at 20.8 °C) at the lower section of the wall. In infrared thermography, this temperature drop confirms the presence of evaporative cooling caused by active moisture saturation within the wall substrate behind the skirting.
-*   **Visual Evidence:** The physical images of the bathroom floor (Photo 56/57) show porous and degraded grout lines. The corresponding bedroom wall image shows visible staining, plaster degradation, and peeling paint at the skirting level, confirming lateral moisture migration from the bathroom floor membrane to the adjacent bedroom wall.
+*   **Visual Observation:** The thermal image captures a distinct "Coldspot" (indicated at 20.8°C) at the base of the wall near the floor/skirting junction. The corresponding optical image shows significant paint peeling, efflorescence, and moisture staining along the skirting line, which is a classic indicator of capillary action caused by moisture penetration from the adjacent wet area (bathroom).
+*   **Thermal Observation:** The blue-to-cyan temperature gradient clearly highlights a moisture-saturated zone behind the plaster. The stark temperature difference between the dry wall (approx. 23.8°C) and the damp base (20.8°C) confirms active moisture migration.
 
 ### 4. Probable Root Cause
-The root cause is **compromised waterproofing and grout failure** in the Common Bathroom. Water used in the shower/floor area is seeping through the degraded gaps in the tile joints. Due to a potential breakdown in the sub-floor waterproof membrane, this water is migrating laterally through the slab and wall base, manifesting as dampness and rising damp at the skirting level of the adjacent Common Bedroom.
+The root cause is **compromised waterproofing and grout failure** in the Common Bathroom. 
+*   **Mechanism:** Moisture from the bathroom floor (due to gaps in tile joints and potentially deteriorated perimeter sealant) is seeping through the porous floor slab and wall junction. This water migrates laterally through the bedding material and into the wall of the adjacent Common Bedroom, where it manifests as dampness at the skirting level due to poor moisture barrier protection between the bathroom and bedroom partition wall.
 
-### 5. Severity Assessment: **High**
-*   **Reasoning:** The presence of a clear cold spot on the thermal scan indicates that the structure is currently saturated with moisture. If left unaddressed, this will lead to the deterioration of the wall plaster, potential corrosion of any embedded wall ties or reinforcement, and the development of mold, which poses a health risk and causes ongoing structural damage to the finishing materials.
+### 5. Severity Assessment
+*   **Severity: High**
+*   **Reasoning:** The presence of a clear coldspot indicates ongoing, active moisture saturation. If left unaddressed, this will lead to the degradation of the plaster, development of mold/mildew (which poses health risks), and potential corrosion of any embedded electrical conduits or structural reinforcement if the moisture is reaching the slab level.
 
 ### 6. Recommended Actions
-1.  **Waterproofing Remediation:** Perform a localized re-grouting of the bathroom floor using high-quality, water-repellent epoxy-based grout. If the issue persists, the bathroom floor tile membrane may require re-application of a flexible waterproofing coating.
-2.  **Moisture Extraction & Repairs:** Once the source (grout/membrane) is sealed, the impacted skirting and plaster in the bedroom must be removed. Allow the wall substrate sufficient time to dry out naturally or via dehumidification before applying new anti-damp plaster and paint.
-3.  **Flood Testing:** Post-repair, conduct a flood test in the bathroom for 24 hours to ensure the watertight integrity of the floor before finalizing the wall repairs in the bedroom.
+1.  **Pressure Grouting/Re-grouting:** Remove existing loose/cracked grout from the bathroom tile joints and apply high-quality, water-resistant epoxy grout to create a sealed, impermeable floor surface.
+2.  **Perimeter Perimeter Sealant:** Apply a flexible, waterproof silicone sealant at the internal junction where the wall meets the floor in the bathroom to prevent water from entering the wall cavity.
+3.  **Moisture Remediation:** Once the source is sealed, the damaged plaster in the bedroom must be stripped back to the masonry, treated with an anti-fungal solution, and replastered with a damp-proof additive to ensure the area dries out completely and does not harbor residual mold.
 
 **Images:**
-![Reference Image](file:///C:/GenAI_Projects/ReportIQ/temp/visual_appendix/page21.png)
+![Reference Image](../temp/visual_appendix/page21.png)
 
-![Reference Image](file:///C:/GenAI_Projects/ReportIQ/temp/visual_appendix/page22.png)
+![Reference Image](../temp/visual_appendix/page22.png)
 
-![Reference Image](file:///C:/GenAI_Projects/ReportIQ/temp/thermal_scans/page6.png)
+![Reference Image](../temp/thermal_scans/page6.png)
 
 
 ---
 
 #### Area: Area 7
 **Detailed Observations & Reasoning:**
-Based on the diagnostic documentation provided, here is the assessment:
+Based on the documentation provided, here is the diagnostic report for the identified issue:
 
-### **ISSUE POINT #: 01**
-- **IMPACTED AREA:** Bathroom/Utility floor area (associated with the wet floor and pipe proximity).
-- **EXPOSED SOURCE AREA:** Concealed plumbing line/drainage stack located in the ceiling/void space beneath the floor slab (Photos 61/62).
+### **ISSUE POINT #1**
+*   **IMPACTED AREA:** Ceiling/Wall junction below the bathroom plumbing zone.
+*   **EXPOSED SOURCE AREA:** Overhead drainage piping and bathroom floor assembly.
 
 ---
 
 ### **1. Identified Photo #**
-*   **Photo 61 & 62:** Show the overhead plumbing drainage stacks that are heavily corroded and likely leaking onto the slab area directly above the thermal anomaly.
-*   **Photo 59 & 60:** Show the surface level impact (bathroom tile/floor drain area).
+*   **Visual Appendix:** **Photo 59** (shows surface water staining/grouting degradation at the base of the toilet/floor interface) and **Photo 61/62** (showing the underside of the plumbing infrastructure).
+*   **Thermal Report:** **Thermal image RB02405X.JPG** (Page 7).
 
-### **2. Matching Thermal Scan**
-*   **Thermal image: RB02405X.JPG (Page 7):** This image captures the thermal footprint of the ceiling or wall area directly adjacent to the plumbing infrastructure. The cold spot (21.2 °C) indicates the presence of moisture/active dampness.
+### **2. Matching Thermal Scan Page**
+*   **Thermal Page:** Page 7 of the report. The thermal image shows a distinct cold spot (~21.2 °C) corresponding to the wall area adjacent to the plumbing, indicating the presence of moisture or dampness behind the finished surface.
 
 ### **3. Detailed Observation**
-*   **Visual Appendix:** Photos 61 and 62 reveal severe corrosion and oxidation on the exposed metal plumbing pipes. This indicates a high probability of localized failure or weeping joints within the piping system. Photos 59 and 60 confirm staining/water penetration on the floor tiles, consistent with a failure of the waterproof seal or the subsurface plumbing.
-*   **Thermal Report:** The thermal scan displays a distinct "cold spot" (21.2 °C) against a warmer ambient background. In building diagnostics, localized cold spots are a signature of evaporative cooling caused by moisture saturation in the masonry or slab.
+*   **Visual:** Photo 59 displays clear signs of water ingress, likely from the toilet seal or floor-to-tile grout failure, allowing water to permeate the substrate. Photos 61 and 62 confirm the "Exposed Source Area," revealing aged, corroded plumbing pipes located in the ceiling void directly beneath the bathroom floor.
+*   **Thermal:** The thermal scan identifies a clear blue-spectrum cold zone (21.2 °C). In building diagnostics, this temperature differential compared to the ambient wall surface (approx. 24–26 °C) confirms active moisture saturation within the masonry/drywall assembly.
 
 ### **4. Probable Root Cause**
-The primary cause is **chronic leakage from the corroded overhead drainage stack (Photos 61/62).** Water is migrating from the leaking pipe joints into the floor slab/ceiling assembly, leading to the thermal anomaly identified in image RB02405X. The surface staining in Photos 59/60 suggests that the seepage has compromised the floor waterproofing or the structural slab integrity.
+The primary cause is a combination of **compromised waterproofing/grouting** at the bathroom floor level (Photo 59) and **potential pipe joint degradation** in the plumbing stack located in the ceiling void (Photos 61/62). Water from the bathroom floor is migrating through the slab/tile interface and collecting around the ceiling plumbing penetrations, causing the thermal anomaly shown on Page 7.
 
-### **5. Severity Assessment: HIGH**
-*   **Reasoning:** The combination of significant visual corrosion on plumbing infrastructure and an active thermal "cold spot" indicates that this is not a one-time spill but an active, ongoing leak. If left unaddressed, the saturation will lead to further degradation of the concrete slab (spalling), potential structural weakening of the pipes, and significant mold/bacterial growth in the ceiling void.
+### **5. Severity Assessment: High**
+*   **Reasoning:** The combination of surface staining, thermal evidence of moisture, and corroded piping suggests an ongoing, long-term leak. This poses an immediate risk of structural dampness, potential mold proliferation, and further degradation of the plumbing infrastructure, which could lead to a burst or major pipe failure if not addressed.
 
 ### **6. Recommended Actions**
-1.  **Plumbing Integrity Test:** Conduct a hydrostatic pressure test on the drainage lines identified in Photos 61/62 to pinpoint the exact location of the pipe failure.
-2.  **Repairs & Waterproofing:** Replace the corroded pipe sections and re-apply a professional-grade waterproof membrane to the floor slab around the drain and toilet fixture (Photo 59/60) to prevent further water ingress.
-3.  **Moisture Remediation:** Once the leak is stopped, utilize industrial dehumidification in the ceiling void to thoroughly dry the substrate and prevent long-term microbial growth.
+1.  **Pressure/Flood Test:** Perform a controlled flood test of the bathroom floor and toilet base area to confirm the exact point of ingress while monitoring the thermal scan for changes.
+2.  **Plumbing Inspection:** Engage a licensed plumber to inspect the joints and pipe integrity shown in Photos 61 and 62 for active drips or weepage.
+3.  **Waterproofing Remediation:** Once the leak source is isolated, strip and re-apply professional-grade waterproofing at the floor/toilet interface and rectify any pipe-to-slab penetration gaps to prevent future seepage.
 
 **Images:**
-![Reference Image](file:///C:/GenAI_Projects/ReportIQ/temp/visual_appendix/page23.png)
+![Reference Image](../temp/visual_appendix/page23.png)
 
-![Reference Image](file:///C:/GenAI_Projects/ReportIQ/temp/thermal_scans/page7.png)
+![Reference Image](../temp/thermal_scans/page7.png)
 
 
 ---
