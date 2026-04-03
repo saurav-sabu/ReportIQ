@@ -53,7 +53,7 @@ def extract_text(pdf_path):
 
 def extract_summary_table(pdf_path, summary_page=10):
     """
-    Extracts the Summary Table from Page 10 of Sample Report.pdf
+    Extracts the Summary Table from the specified page of the report PDF.
     """
     page_index = summary_page - 1
     

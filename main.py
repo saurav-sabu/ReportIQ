@@ -71,6 +71,9 @@ def main():
     os.makedirs(checkpoint_dir, exist_ok=True)
     checkpoint_path = os.path.join(checkpoint_dir, "checkpoint.json")
     
+    current_config_hash = f"{visual_start}_{visual_end}_{thermal_start}_{thermal_end}_{summary_page}_{max_points}"
+    checkpoint_data = {"config_hash": current_config_hash, "points": []}
+    
     if args.fresh and os.path.exists(checkpoint_path):
         os.remove(checkpoint_path)
         print("Starting a fresh execution (--fresh requested).")
@@ -78,11 +81,14 @@ def main():
     if os.path.exists(checkpoint_path):
         try:
             with open(checkpoint_path, "r") as f:
-                ddr_data = json.load(f)
-            print(f"Resuming from checkpoint: {len(ddr_data)} points already completed.")
+                loaded = json.load(f)
+            if isinstance(loaded, dict) and loaded.get("config_hash") == current_config_hash:
+                ddr_data = loaded.get("points", [])
+                print(f"Resuming from checkpoint: {len(ddr_data)} points already completed.")
+            else:
+                print("WARNING: Checkpoint config mismatch (parameters changed). Starting from scratch.")
         except json.JSONDecodeError:
             print("WARNING: Checkpoint is corrupted. Starting from scratch.")
-            ddr_data = []
     
     num_points = min(max_points, len(summary_table))
     if len(visual_appendix) < 2 * num_points:
@@ -117,8 +123,9 @@ def main():
         }
         ddr_data.append(section)
         
+        checkpoint_data["points"] = ddr_data
         with open(checkpoint_path, "w") as f:
-            json.dump(ddr_data, f, indent=2, default=str)
+            json.dump(checkpoint_data, f, indent=2, default=str)
     
     # 3. Generation Phase
     print("\n--- 3. Generation Phase ---")

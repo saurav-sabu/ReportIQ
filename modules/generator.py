@@ -113,6 +113,10 @@ Clean and chip off damaged plaster. Moisten surface and apply bonding coat. Prov
 This section contains high-resolution pairings of visual damage and their corresponding thermal signatures.
 """
 
+    output_dir = os.path.dirname(os.path.abspath(output_path))
+    img_out_dir = os.path.join(output_dir, "images")
+    os.makedirs(img_out_dir, exist_ok=True)
+    
     for section in ddr_data:
         report += f"""
 #### Area: {section.get('area', 'Unknown')}
@@ -121,10 +125,6 @@ This section contains high-resolution pairings of visual damage and their corres
 
 **Images:**
 """
-        output_dir = os.path.dirname(os.path.abspath(output_path))
-        img_out_dir = os.path.join(output_dir, "images")
-        os.makedirs(img_out_dir, exist_ok=True)
-        
         for img_path in section.get('images', []):
             if os.path.exists(img_path):
                 source_prefix = os.path.basename(os.path.dirname(img_path))
