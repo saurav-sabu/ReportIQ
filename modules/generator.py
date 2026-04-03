@@ -10,6 +10,12 @@ def generate_markdown_report(client_data, ddr_data, summary_table_rows, output_p
     branding_welcome = os.getenv("WELCOME_TEXT", "Thank you for choosing UrbanRoof to help you navigate the health of your property. We have put together this report based on inspection data and its analysis.")
     branding_about = os.getenv("ABOUT_US_TEXT", "The idea, UrbanRoof, was born in 2016 to provide a transparent and straightforward process for the diagnosis & treatment of building constructions. We are obsessed with solving the smallest to the biggest issues of constructed properties.")
     branding_disclaimer = os.getenv("LEGAL_DISCLAIMER", "UrbanRoof has performed a visual and non-destructive test inspection. We accept no responsibility for misuse or misinterpretation by third parties.")
+    
+    intro_background = os.getenv("INTRO_BACKGROUND", "The site investigation was conducted to carry out a preliminary Health Assessment of the Flat based on testing and visual inspection.")
+    intro_objective = os.getenv("INTRO_OBJECTIVE", "- To facilitate detection of all possible flaws and analyze cause-effects.\n- To prioritize immediate repair and protection measures.\n- To evaluate accurate scope of work for execution/treatment.")
+    intro_scope = os.getenv("INTRO_SCOPE", "Conducting visual site inspection using necessary assessment tools like Tapping Hammer, Crack gauge, IR Thermography, and Moisture meters.")
+    data_disclaimer = os.getenv("DATA_DISCLAIMER", "This property inspection is not an exhaustive inspection of the structure, systems, or components. A health checkup helps to reduce some of the risk involved, but it cannot eliminate these risks.")
+    limitation_note = os.getenv("LIMITATION_NOTE", "The information provided is an opinion based on a visual examination of readily accessible features. It does not include identifying defects hidden behind walls, floors, or ceilings.")
 
     # 1. FRONT MATTER & COVER
     report = f"""# Detailed Diagnosis Report (DDR)
@@ -17,9 +23,9 @@ def generate_markdown_report(client_data, ddr_data, summary_table_rows, output_p
 
 ---
 
-**Report Date:** {client_data.get('date', 'July 24, 2023')}  
-**Prepared For:** {client_data.get('client_name', 'Flat No-8/63, Yamuna CHS')}  
-**Inspected By:** {client_data.get('inspected_by', 'Mr. Rahane')}
+**Report Date:** {client_data.get('date', 'N/A')}  
+**Prepared For:** {client_data.get('client_name', 'N/A')}  
+**Inspected By:** {client_data.get('inspected_by', 'N/A')}
 
 ---
 
@@ -32,7 +38,7 @@ def generate_markdown_report(client_data, ddr_data, summary_table_rows, output_p
 ---
 
 ## Data and Information Disclaimer
-This property inspection is not an exhaustive inspection of the structure, systems, or components. A health checkup helps to reduce some of the risk involved, but it cannot eliminate these risks.
+{data_disclaimer}
 
 ---
 
@@ -48,15 +54,13 @@ This property inspection is not an exhaustive inspection of the structure, syste
 
 ## SECTION 1: INTRODUCTION
 ### 1.1 BACKGROUND
-The site investigation was conducted to carry out a preliminary Health Assessment of the Flat based on testing and visual inspection.
+{intro_background}
 
 ### 1.2 OBJECTIVE
-- To facilitate detection of all possible flaws and analyze cause-effects.
-- To prioritize immediate repair and protection measures.
-- To evaluate accurate scope of work for execution/treatment.
+{intro_objective}
 
 ### 1.3 SCOPE OF WORK
-Conducting visual site inspection using necessary assessment tools like Tapping Hammer, Crack gauge, IR Thermography, and Moisture meters.
+{intro_scope}
 
 ---
 
@@ -66,17 +70,17 @@ Conducting visual site inspection using necessary assessment tools like Tapping 
 ### 2.1 CLIENT & INSPECTION DETAILS
 | Particular | Description |
 | :--- | :--- |
-| **Customer Name** | {client_data.get('client_name', 'Flat No-8/63')} |
-| **Site Address** | {client_data.get('address', 'Mulund East, Mumbai')} |
-| **Date of Inspection** | {client_data.get('date', '03/01/2023')} |
-| **Inspected By** | {client_data.get('inspected_by', 'Mr. Krushna')} |
+| **Customer Name** | {client_data.get('client_name', 'N/A')} |
+| **Site Address** | {client_data.get('address', 'N/A')} |
+| **Date of Inspection** | {client_data.get('date', 'N/A')} |
+| **Inspected By** | {client_data.get('inspected_by', 'N/A')} |
 
 ### 2.2 DESCRIPTION OF SITE
 | Particular | Description |
 | :--- | :--- |
-| **Type of structure** | {client_data.get('property_type', 'Flat / Row House')} |
-| **Floors** | {client_data.get('floors', '1')} |
-| **Age of Building** | {client_data.get('age', '11 Years')} |
+| **Type of structure** | {client_data.get('property_type', 'N/A')} |
+| **Floors** | {client_data.get('floors', 'N/A')} |
+| **Age of Building** | {client_data.get('age', 'N/A')} |
 
 ---
 
@@ -85,17 +89,7 @@ Conducting visual site inspection using necessary assessment tools like Tapping 
 ## SECTION 3: ANALYSIS & SUGGESTIONS
 Site observations were recorded using high-resolution photography and thermal imaging to document areas of moisture ingress and structural distress.
 
-### 3.1 ACTIONS REQUIRED & SUGGESTED THERAPIES
-#### 3.1.1 BATHROOM & BALCONY GROUTING TREATMENT
-Clean the surface. Cut the joints into V shape with an electric cutter, fill the joints using liquid polymer-modified mortar so that it reaches cracks developed below tiles.
-
-#### 3.1.2 PLUMBING
-Repairing existing damaged outlets if any & installing additional new outlets as required.
-
-#### 3.1.3 PLASTER WORK
-Clean and chip off damaged plaster. Moisten surface and apply bonding coat. Provide 20-25 mm thick sand-faced cement plaster with integral waterproofing compound.
-
-### 3.2 SUMMARY TABLE
+### 3.1 SUMMARY TABLE
 | Point No | Impacted area (-ve side) | Exposed area (+ve side) |
 | :--- | :--- | :--- |
 """
@@ -109,7 +103,7 @@ Clean and chip off damaged plaster. Moisten surface and apply bonding coat. Prov
     report += """
 ---
 
-### 3.3 THERMAL REFERENCES (IMPACTED AREAS)
+### 3.2 THERMAL REFERENCES (IMPACTED AREAS)
 This section contains high-resolution pairings of visual damage and their corresponding thermal signatures.
 """
 
@@ -140,7 +134,7 @@ This section contains high-resolution pairings of visual damage and their corres
 <div id="section-4-limitation-and-precaution-note"></div>
 
 ## SECTION 4: LIMITATION AND PRECAUTION NOTE
-The information provided is an opinion based on a visual examination of readily accessible features. It does not include identifying defects hidden behind walls, floors, or ceilings.
+{limitation_note}
 
 ## Legal Disclaimer
 {branding_disclaimer}
