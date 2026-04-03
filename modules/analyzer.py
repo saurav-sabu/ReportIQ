@@ -1,42 +1,30 @@
 import os
 import base64
+import mimetypes
+import textwrap
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import HumanMessage
-from pydantic import BaseModel, Field
-from typing import List, Optional
+from tenacity import retry, wait_exponential, stop_after_attempt
 
-class ObservationMatch(BaseModel):
-    is_match: bool = Field(description="True if the visual and thermal images match the same location.")
-    confidence: float = Field(description="Confidence score from 0 to 1.")
-    area_name: str = Field(description="The name of the area (e.g., Hall, Bathroom).")
-    findings: str = Field(description="Detailed findings from the comparison.")
-
-class DDRSection(BaseModel):
-    area: str
-    issue_summary: str
-    observations: str
-    root_cause: str
-    severity: str
-    reasoning: str
-    actions: str
-    images: List[str] # Paths to images
-
+@retry(wait=wait_exponential(min=2, max=30), stop=stop_after_attempt(3))
+def call_llm(llm, message):
+    return llm.invoke([message])
 def encode_image(image_path):
+    if not os.path.exists(image_path):
+        print(f"WARNING: Image not found: {image_path}")
+        return None
     with open(image_path, "rb") as image_file:
         return base64.b64encode(image_file.read()).decode("utf-8")
 
-def analyze_and_merge_logic(api_key, point_data, visual_pages, thermal_pages):
+def analyze_and_merge_logic(llm, point_data, visual_pages, thermal_pages):
     """
     Core vision analysis logic for a single DDR point.
     """
-    model_name = os.getenv("MODEL_NAME", "gemini-3.1-pro-preview")
-    llm = ChatGoogleGenerativeAI(model=model_name, google_api_key=api_key)
-    
     point_no = point_data.get("Point No", "") or point_data.get("PointNo", "")
     impacted = point_data.get("Impacted area (-ve side)", "") or point_data.get("Impacted area", "")
     exposed = point_data.get("Exposed area (+ve side)", "") or point_data.get("Exposed area", "")
     
-    prompt = f"""
+    prompt = textwrap.dedent(f"""\
     You are an expert Property Diagnostic Inspector.
     
     Analyzing ISSUE POINT #{point_no}:
@@ -55,7 +43,7 @@ def analyze_and_merge_logic(api_key, point_data, visual_pages, thermal_pages):
     
     Format the response clearly in sections. 
     If a photo is not clearly found, mention "Photo Not Available" and describe the likely situation based on the technical input.
-    """
+    """)
     
     # Combine relevant pages
     all_paths = visual_pages + thermal_pages
@@ -63,13 +51,21 @@ def analyze_and_merge_logic(api_key, point_data, visual_pages, thermal_pages):
     
     for path in all_paths:
         image_data = encode_image(path)
+        if not image_data:
+            continue
+            
+        mime_type = mimetypes.guess_type(path)[0] or "image/png"
         content.append({
             "type": "image_url",
-            "image_url": {"url": f"data:image/jpeg;base64,{image_data}"}
+            "image_url": {"url": f"data:{mime_type};base64,{image_data}"}
         })
         
     message = HumanMessage(content=content)
-    response = llm.invoke([message])
+    try:
+        response = call_llm(llm, message)
+    except Exception as e:
+        print(f"ERROR: Gemini API call failed for Point #{point_no}: {e}")
+        return f"Analysis unavailable due to API error: {e}"
     
     if isinstance(response.content, list):
         return "".join([m.get("text", "") for m in response.content if isinstance(m, dict) and m.get("type") == "text"])

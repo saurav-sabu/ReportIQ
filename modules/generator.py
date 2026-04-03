@@ -1,18 +1,5 @@
 import os
-
-import base64
-
-def get_base64_image(image_path):
-    """
-    Converts a local image file into a Base64 string for direct embedding.
-    """
-    try:
-        with open(image_path, "rb") as image_file:
-            return base64.b64encode(image_file.read()).decode('utf-8')
-    except Exception as e:
-        print(f"Error encoding image {image_path}: {e}")
-        return None
-
+import shutil
 def generate_markdown_report(client_data, ddr_data, summary_table_rows, output_path):
     """
     Generates a high-fidelity Markdown report mirroring 'Main DDR.pdf'.
@@ -20,8 +7,7 @@ def generate_markdown_report(client_data, ddr_data, summary_table_rows, output_p
     """
     
     # 1. FRONT MATTER & COVER
-    report = f"""
-# Detailed Diagnosis Report (DDR)
+    report = f"""# Detailed Diagnosis Report (DDR)
 **UrbanRoof Private Limited**
 
 ---
@@ -48,9 +34,8 @@ This property inspection is not an exhaustive inspection of the structure, syste
 ## TABLE OF CONTENTS
 1. [SECTION 1: INTRODUCTION](#section-1-introduction)
 2. [SECTION 2: GENERAL INFORMATION](#section-2-general-information)
-3. [SECTION 3: VISUAL OBSERVATIONS](#section-3-visual-observations)
-4. [SECTION 4: ANALYSIS & SUGGESTIONS](#section-4-analysis--suggestions)
-5. [SECTION 5: LIMITATION AND PRECAUTION NOTE](#section-5-limitation-and-precaution-note)
+3. [SECTION 3: ANALYSIS & SUGGESTIONS](#section-3-analysis--suggestions)
+4. [SECTION 4: LIMITATION AND PRECAUTION NOTE](#section-4-limitation-and-precaution-note)
 
 ---
 
@@ -90,27 +75,22 @@ Conducting visual site inspection using necessary assessment tools like Tapping 
 
 ---
 
-<div id="section-3-visual-observations"></div>
+<div id="section-3-analysis--suggestions"></div>
 
-## SECTION 3: VISUAL OBSERVATIONS and READINGS
+## SECTION 3: ANALYSIS & SUGGESTIONS
 Site observations were recorded using high-resolution photography and thermal imaging to document areas of moisture ingress and structural distress.
 
----
-
-<div id="section-4-analysis--suggestions"></div>
-
-## SECTION 4: ANALYSIS & SUGGESTIONS
-### 4.1 ACTIONS REQUIRED & SUGGESTED THERAPIES
-#### 4.1.1 BATHROOM & BALCONY GROUTING TREATMENT
+### 3.1 ACTIONS REQUIRED & SUGGESTED THERAPIES
+#### 3.1.1 BATHROOM & BALCONY GROUTING TREATMENT
 Clean the surface. Cut the joints into V shape with an electric cutter, fill the joints using liquid polymer-modified mortar so that it reaches cracks developed below tiles.
 
-#### 4.1.2 PLUMBING
+#### 3.1.2 PLUMBING
 Repairing existing damaged outlets if any & installing additional new outlets as required.
 
-#### 4.1.3 PLASTER WORK
+#### 3.1.3 PLASTER WORK
 Clean and chip off damaged plaster. Moisten surface and apply bonding coat. Provide 20-25 mm thick sand-faced cement plaster with integral waterproofing compound.
 
-### 4.3 SUMMARY TABLE
+### 3.2 SUMMARY TABLE
 | Point No | Impacted area (-ve side) | Exposed area (+ve side) |
 | :--- | :--- | :--- |
 """
@@ -124,7 +104,7 @@ Clean and chip off damaged plaster. Moisten surface and apply bonding coat. Prov
     report += """
 ---
 
-### 4.4 THERMAL REFERENCES (IMPACTED AREAS)
+### 3.3 THERMAL REFERENCES (IMPACTED AREAS)
 This section contains high-resolution pairings of visual damage and their corresponding thermal signatures.
 """
 
@@ -137,16 +117,22 @@ This section contains high-resolution pairings of visual damage and their corres
 **Images:**
 """
         output_dir = os.path.dirname(os.path.abspath(output_path))
+        img_out_dir = os.path.join(output_dir, "images")
+        os.makedirs(img_out_dir, exist_ok=True)
+        
         for img_path in section.get('images', []):
-            rel_path = os.path.relpath(img_path, output_dir).replace(os.path.sep, '/')
-            report += f"![Reference Image]({rel_path})\n\n"
+            if os.path.exists(img_path):
+                dest_path = os.path.join(img_out_dir, os.path.basename(img_path))
+                shutil.copy(img_path, dest_path)
+                rel_path = f"images/{os.path.basename(dest_path)}".replace(os.path.sep, '/')
+                report += f"![Reference Image]({rel_path})\n\n"
             
         report += "\n---\n"
         
     report += """
-<div id="section-5-limitation-and-precaution-note"></div>
+<div id="section-4-limitation-and-precaution-note"></div>
 
-## SECTION 5: LIMITATION AND PRECAUTION NOTE
+## SECTION 4: LIMITATION AND PRECAUTION NOTE
 The information provided is an opinion based on a visual examination of readily accessible features. It does not include identifying defects hidden behind walls, floors, or ceilings.
 
 ## Legal Disclaimer
